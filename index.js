@@ -34,8 +34,8 @@ bot.on('ready', () => {
                 .addFields(
                         { name: `From Anonymous User`, value: `${message.author.content}` }
                         )
-            bot.channels.cache.get('850513185081262090').send(messageEmbed)
-            bot.channels.cache.get('850513185081262090').send(`=======================`)
+            bot.channels.cache.get('885310014741426246').send(messageEmbed)
+            bot.channels.cache.get('885310014741426246').send(`=======================`)
             
         }
 }
