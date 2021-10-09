@@ -25,14 +25,14 @@ bot.on('ready', () => {
     });
     bot.on('message', message => {
         if (message.channel.type == "dm") {
-                if(message.author.id !== '466666919995637762') {
+                if(message.author.id !== '885307531755405333') {
                 message.author.send("Message Delivered to the Owners anonymously");
             let messageEmbed = new Discord.MessageEmbed ()
                 .setColor(0x00ff00)
                 .setTitle('I received the following DM:')
-                .setThumbnail('https://i.imgur.com/K5BeJK9.png')
+                .setThumbnail('https://i.imgur.com/aZtYZ20.png')
                 .addFields(
-                        { name: `From Anonymous User`, value: `${message.author.content}` }
+                        { name: `From ${message.author.username}`, value: `${message.author.lastMessage}` }
                         )
             bot.channels.cache.get('885310014741426246').send(messageEmbed)
             bot.channels.cache.get('885310014741426246').send(`=======================`)
@@ -103,11 +103,59 @@ bot.on('ready', () => {
 
     bot.on('message', message => {
             if(message.content === `Vote here`) {
-                    message.react('513401447002537992').then(r => {
-                            message.react('477275360329990164');
+                    message.react('885326106503299143').then(r => {
+                            message.react('885326105995776093');
                     });
             }
     });
+
+ /*   bot.on('message', message => {
+        let channel = message.channel;
+        let roles = message.guild.roles; 
+        const adminRole = message.guild.roles.cache.find(r => r.name === 'Hosted');
+        const { MessageEmbed } = require('discord.js');
+
+
+        const Discord = require('discord.js');
+
+        const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setAuthor('Bloods BOT', 'https://i.imgur.com/aZtYZ20.png')
+	.setDescription('**The Channel is Locked by an administrator!**')
+	.setThumbnail('https://i.imgur.com/aZtYZ20.png')
+	.setTimestamp()
+	.setFooter('Bloods BOT', 'https://i.imgur.com/aZtYZ20.png');
+
+        
+        const exampleEmbed2 = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setAuthor('Bloods BOT', 'https://i.imgur.com/aZtYZ20.png')
+	.setDescription('**The Channel is Unlocked by an administrator!**')
+	.setThumbnail('https://i.imgur.com/aZtYZ20.png')
+	.setTimestamp()
+	.setFooter('Bloods BOT', 'https://i.imgur.com/aZtYZ20.png');
+
+            if(message.content === `!lock`) {               
+                channel.send(exampleEmbed);
+                message.channel.overwritePermissions([
+                        {
+                           id: adminRole.id,
+                           deny: ['SEND_MESSAGES'],
+                        },
+                      ]);
+            }
+            if(message.content === `!unlock`) {               
+                channel.send(exampleEmbed2);
+                message.channel.overwritePermissions([
+                        {
+                           id: adminRole.id,
+                           allow: ['SEND_MESSAGES'],
+                        },
+                      ]);
+                  
+            }
+    })*/
+
 
     
     bot.login(token).catch(err => console.log(err))
